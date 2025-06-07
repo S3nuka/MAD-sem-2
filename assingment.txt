@@ -1,0 +1,94 @@
+●	Scenario
+Based on the prototype you have already developed in assignment 1, you have been asked to implement a fully functional mobile application using one of the following technologies:
+•	Android with Java
+•	Android with Kotlin
+•	Android with Flutter
+
+Assignment submission and presenting the app:
+You need to submit the following via LMS:
+•	A public GitHub repository link to your Flutter project. You must use Git for version control throughout the development process.
+•	Ensure that your commit history reflects your progress, as it will be crucial in evaluating your work. Commit regularly with clear messages.
+•	No changes should be made to the repository after the submission deadline. Any commits after the deadline will result in penalties.
+•	The repository must be publicly accessible for evaluation. Private repositories will not be accepted.
+
+•	you need to attend:
+                      a 15 minute demonstration of your Android mobile application that fulfils the criteria in the marking scheme
+
+
+o	Marking scheme
+	Marks
+The application must
+•	be built using Java, Kotlin or Flutter for Android and associated libraries
+•	conform to Android platform and design requirements
+•	contain appropriate content, with no Lorem ipsum or dummy content
+•	use suitable and optimised media of the correct format 
+•	have suitably formatted text of correct size using appropriate fonts 
+•	have at least 6 screens (4 of these are accessed from the bottom navigation)
+•	access 2 other screens in a way suitable for a mobile application.
+•	use appropriate components to layout the screens.	10
+The student must showcase
+•	Use of External State Management Libraries in Flutter. (e.g., Provider, Riverpod)
+•	Good understanding of the library and leveraging it to efficiently manage state across the app.
+•	. Self-learning through a LinkedIn course is expected to support understanding of this topic.  Suggested Course: https://www.linkedin.com/learning/flutter-essential-training-build-for-multiple-platforms?u=180139196
+10
+Authentication - your application must
+•	contain an initial screen with a well-designed mobile form for login and a link to a register screen 
+•	For students that selected SSP Module: provide user authentication and registration via the API exposed by the SSP module assignment (using Jetstream) or using Firebase or Equivalent.
+•	For other students: provide user authentication and registration using Firebase or equivalent 	10
+Data – your application must
+•	For students that selected SSP Module: connect to the internet to get data from an API exposed by the SSP module assignment
+•	For other students: connect to the internet to get data from a publicly available API.
+•	connect to the internet to get data from an external JSON file 
+•	provide an example of suitable content read from a local JSON file if the application is offline 
+•	read data from a local data source 
+•	write data to a local data source 	20
+Scrollable list – your application must
+•	include an example of a scrollable list with master/detail (clicking on an item to give more information) 
+•	read data  (master/detail) from external JSON file(s)	10
+Mobile device capabilities – your application must demonstrate use of the following
+•	light and dark mode which changes based on the device setting, and has suitable and accessible colours
+•	network connectivity information
+•	at least 3 of the following – geolocation, camera sensor, accelerometer, gyroscope, proximity sensor, battery status, ambient light sensor, contact information from the phone, any other mobile device capability (agreed with module lecturer beforehand)	20
+Testing
+•	robustness of the final application, based on live tests	10
+ Discretionary
+•	quality of application
+•	understanding of code
+•	ability to answer questions	10
+TOTAL	100
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+o	Mark allocations
+	unsatisfactory	satisfactory 	good attempt	very good attempt	excellent attempt
+1. Platform, Design, Screens, and Navigation 
+[10 Marks]	0-2 Marks: Minimal adherence to platform guidelines or fewer than 6 screens; navigation poorly implemented or non-functional.	3-4 Marks: Basic app structure with 6 screens and bottom navigation, but inconsistencies in design or media optimization.	5-6 Marks: Adequate conformity to Android platform and design guidelines, with 6 screens (4 from bottom navigation) and other screens properly accessed, though some layout or design issues may exist.	7-8 Marks: Good implementation of platform, design, navigation, and screen layout, with properly formatted text, optimized media, and clear navigation between screens.	9-10 Marks: Exceptional adherence to platform and design guidelines, with well-optimized media, professional navigation between 6+ screens, and appropriate components for layout. The app is polished, responsive, and user-friendly.
+2.Authentication and Registration (Login, API Integration for SSP/Firebase)
+[10 Marks]	0-2 Marks: Incomplete or missing authentication system or poor implementation.	3-4 Marks: Basic authentication system, but with limited design or functionality (e.g., no API integration or shallow Firebase setup).	5-6 Marks: Satisfactory login and registration form, with working API integration (SSP or Firebase) for authentication.	7-8 Marks: Good implementation of authentication system with polished design and full functionality using the API or Firebase, though some minor improvements could be made.	9-10 Marks: Exceptional implementation of authentication with seamless integration of Firebase or the SSP API, well-designed forms, and clear handling of user registration and login processes.
+3. Data Integration (External & Local JSON, Reading/Writing to Local Data Source)
+[20 Marks]	0-4 Marks: Incomplete or improper data integration, unable to fetch or display external or local data.	5-8 Marks: Basic implementation of data fetching from external and local JSON files, but some functionality (e.g., reading/writing to local storage) is incomplete.	9-12 Marks: Good data integration, with working API connection and handling of external and local data, though some issues may exist with offline functionality or local storage.	13-16 Marks: Well-executed data integration, including reading/writing data from/to local data sources, and handling external JSON data. Offline functionality works as expected.	17-20 Marks: Exceptional data integration, with seamless online/offline data management, well-implemented external and local JSON handling, and smooth reading/writing of data to local storage.
+4. Scrollable List (Master/Detail, External JSON Data)
+[10 Marks]	0-2 Marks: Scrollable list or master/detail functionality is missing or poorly implemented.	3-4 Marks: Basic scrollable list and master/detail setup, but the interaction or data handling is limited.	5-6 Marks: Satisfactory implementation of a scrollable list with working master/detail interaction, though some improvements in layout or data fetching could be made.	7-8 Marks: Good implementation of scrollable list and master/detail view with appropriate data handling from external JSON files.	9-10 Marks: Exceptional implementation of scrollable list with a polished master/detail interaction and smooth data handling from external JSON files. 
+5. Mobile Device Capabilities (Light/Dark Mode, Connectivity, 3+ Sensors)
+[20 Marks]	0-4 Marks: Minimal or no use of mobile device capabilities, or poor implementation of light/dark mode or sensors.	5-8 Marks: Basic implementation of light/dark mode and some mobile device capabilities, but limited interaction with sensors or poor usability.	9-12 Marks: Adequate implementation of mobile capabilities (light/dark mode, sensors, connectivity), though improvements could be made in how the sensors are used.	13-16 Marks: Good use of light/dark mode, network connectivity, and 3 or more sensors, demonstrating solid understanding of mobile device capabilities.	17-20 Marks: Exceptional use of mobile device capabilities, with smooth transitions between light/dark mode, excellent use of sensors (e.g., geolocation, camera, etc.), and highly accessible colour schemes.
+6. Use of External State Management Libraries in Flutter
+[10 Marks]	0-2 Marks: No implementation or minimal understanding of state management libraries in Flutter.	3-4 Marks: Basic integration of a state management library (e.g., Provider, Riverpod), but lacking in-depth understanding of its use.	5-6 Marks: Adequate use of an external state management library, showing basic functionality, but lacking advanced features such as error handling or scalability.	7-8 Marks: Good implementation of external state management, with clear understanding of managing state across the app and handling more complex use cases.	9-10 Marks: Exceptional use of external state management, showing advanced understanding of the library and leveraging it to efficiently manage state across the app. Self-learning through a LinkedIn course is expected to support understanding of this topic. 
+(Refer to the following linked in course: https://www.linkedin.com/learning/flutter-essential-training-build-for-multiple-platforms?u=180139196)
+
+7. Testing (Robustness of Final Application)
+[10 Marks]	0-2 Marks: Minimal testing or serious functionality issues detected during live tests.	3-4 Marks: Basic testing performed, but some issues or bugs remain in the application, indicating limited robustness.	5-6 Marks: Satisfactory robustness in live testing, with most features working as expected, but minor bugs or issues could still be present.	7-8 Marks: Well-executed live testing with good robustness, showing minimal issues or bugs during the test.	9-10 Marks: Exceptional robustness in the final application, with no major issues found during live tests. The app functions smoothly across all features.
+8. Discretionary Mark (Quality, Code Understanding, Q&A)
+[10 Marks]	0-2 Marks: Poor-quality app or inability to explain code; lack of understanding in Q&A session.	3-4 Marks: Basic application quality with some understanding of code, but weak ability to answer questions.	5-6 Marks: Satisfactory application quality, with reasonable understanding of code and acceptable answers to questions.	7-8 Marks: Good application quality, showing a solid understanding of the code and ability to answer questions clearly.	9-10 Marks: Exceptional application quality with deep understanding of the code, providing clear, insightful answers during the Q&A session.
