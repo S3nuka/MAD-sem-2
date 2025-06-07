@@ -67,17 +67,25 @@ class DeviceProvider extends ChangeNotifier {
         notifyListeners();
       });
 
-      // Monitor accelerometer
-      _deviceService.startAccelerometer((event) {
-        _accelerometerEvent = event;
-        notifyListeners();
-      });
+      // Monitor accelerometer with error handling
+      try {
+        _deviceService.startAccelerometer((event) {
+          _accelerometerEvent = event;
+          notifyListeners();
+        });
+      } catch (e) {
+        debugPrint('Failed to initialize accelerometer: $e');
+      }
 
-      // Monitor gyroscope
-      _deviceService.startGyroscope((event) {
-        _gyroscopeEvent = event;
-        notifyListeners();
-      });
+      // Monitor gyroscope with error handling
+      try {
+        _deviceService.startGyroscope((event) {
+          _gyroscopeEvent = event;
+          notifyListeners();
+        });
+      } catch (e) {
+        debugPrint('Failed to initialize gyroscope: $e');
+      }
 
       // Get initial connectivity status
       _connectivityStatus = await _deviceService.getConnectivityStatus();

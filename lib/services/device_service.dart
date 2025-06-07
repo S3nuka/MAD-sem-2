@@ -70,16 +70,36 @@ class DeviceService {
 
   // Accelerometer
   void startAccelerometer(Function(AccelerometerEvent) onAccelerometerChanged) {
-    _accelerometerStream = SensorsPlatform.instance.accelerometerEventStream().listen((AccelerometerEvent event) {
-      onAccelerometerChanged(event);
-    });
+    try {
+      _accelerometerStream = SensorsPlatform.instance.accelerometerEventStream().listen(
+        (AccelerometerEvent event) {
+          onAccelerometerChanged(event);
+        },
+        onError: (error) {
+          debugPrint('Accelerometer error: $error');
+        },
+        cancelOnError: false,
+      );
+    } catch (e) {
+      debugPrint('Failed to start accelerometer: $e');
+    }
   }
 
   // Gyroscope
   void startGyroscope(Function(GyroscopeEvent) onGyroscopeChanged) {
-    _gyroscopeStream = SensorsPlatform.instance.gyroscopeEventStream().listen((GyroscopeEvent event) {
-      onGyroscopeChanged(event);
-    });
+    try {
+      _gyroscopeStream = SensorsPlatform.instance.gyroscopeEventStream().listen(
+        (GyroscopeEvent event) {
+          onGyroscopeChanged(event);
+        },
+        onError: (error) {
+          debugPrint('Gyroscope error: $error');
+        },
+        cancelOnError: false,
+      );
+    } catch (e) {
+      debugPrint('Failed to start gyroscope: $e');
+    }
   }
 
   // Cleanup
