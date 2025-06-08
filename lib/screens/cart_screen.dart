@@ -17,16 +17,15 @@ class CartScreen extends StatefulWidget {
 class _CartScreenState extends State<CartScreen> {
   StreamSubscription<AccelerometerEvent>? _accelerometerSubscription;
   DateTime? _lastShakeTime;
-  static const double _shakeThreshold = 15.0; // Adjust this value to change sensitivity
-  static const Duration _shakeCooldown = Duration(seconds: 1); // Prevent multiple refreshes
+  static const double _shakeThreshold = 1.0; // Per-axis threshold
+  static const Duration _shakeCooldown = Duration(seconds: 1);
+  bool _isShakeDetectionEnabled = false;
 
   @override
   void initState() {
     super.initState();
     // Load cart items when screen is opened
     Future.microtask(() => context.read<CartProvider>().loadCart());
-    // Start listening to accelerometer
-    _startAccelerometer();
   }
 
   @override
@@ -37,13 +36,9 @@ class _CartScreenState extends State<CartScreen> {
 
   void _startAccelerometer() {
     _accelerometerSubscription = accelerometerEvents.listen((AccelerometerEvent event) {
-      // Calculate the magnitude of acceleration
-      final double magnitude = (event.x * event.x + event.y * event.y + event.z * event.z).abs();
-      
-      // Check if the magnitude exceeds the threshold
-      if (magnitude > _shakeThreshold) {
+      if (!_isShakeDetectionEnabled) return;
+      if (event.x.abs() > _shakeThreshold || event.y.abs() > _shakeThreshold || event.z.abs() > _shakeThreshold) {
         final now = DateTime.now();
-        // Check if enough time has passed since the last shake
         if (_lastShakeTime == null || now.difference(_lastShakeTime!) > _shakeCooldown) {
           _lastShakeTime = now;
           _handleShake();
@@ -52,22 +47,36 @@ class _CartScreenState extends State<CartScreen> {
     });
   }
 
+  void _enableShakeDetection() {
+    setState(() {
+      _isShakeDetectionEnabled = true;
+    });
+    _accelerometerSubscription?.cancel();
+    _startAccelerometer();
+  }
+
   void _handleShake() {
-    // Show a snackbar to indicate refresh
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Refreshing cart...'),
-        duration: Duration(seconds: 1),
-      ),
-    );
-    // Reload cart items
     context.read<CartProvider>().loadCart();
+    _accelerometerSubscription?.cancel();
+    setState(() {
+      _isShakeDetectionEnabled = false;
+    });
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Cart refreshed by shake!')),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
       title: 'Cart',
+      actions: [
+        IconButton(
+          icon: Icon(_isShakeDetectionEnabled ? Icons.vibration : Icons.vibration_outlined),
+          tooltip: _isShakeDetectionEnabled ? 'Shake detection enabled' : 'Enable shake detection',
+          onPressed: _isShakeDetectionEnabled ? null : _enableShakeDetection,
+        ),
+      ],
       child: Consumer<CartProvider>(
         builder: (context, cart, child) {
           if (cart.isLoading) {

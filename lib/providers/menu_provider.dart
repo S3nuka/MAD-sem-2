@@ -20,7 +20,7 @@ class MenuProvider with ChangeNotifier {
     notifyListeners();
 
     try {
-      final productsData = await _apiService.getProducts();
+      final productsData = await _apiService.getMenuItems();
       // Ensure price is always a double
       _products = productsData.map<Map<String, dynamic>>((item) {
         final price = item['price'];
